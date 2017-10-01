@@ -15,7 +15,9 @@ var detectNetwork = function(cardNumber) {
   // Once you've read this, go ahead and try to implement this function, then return to the console.
   var preOne = cardNumber.substring(0,1);
   var preTwo = cardNumber.substring(0,2);
-  var len = cardNumber.length
+  var preThree = cardNumber.substring(0,3);
+  var preFour = cardNumber.substring(0,4);
+  var len = cardNumber.length;
 
   if (len===14 && (preTwo==='38' || preTwo==='39')) {
     return 'Diner\'s Club';
@@ -25,5 +27,9 @@ var detectNetwork = function(cardNumber) {
     return 'Visa';
   } else if (len===16 && (preTwo==='51' || preTwo==='52' || preTwo==='53' || preTwo==='54'|| preTwo==='55' )) {
     return 'MasterCard';
+  } else if ((len===16 || len===19) && (preFour==='6011' || preThree==='644' || preThree==='645' || preThree==='646' || preThree==='647' || preThree==='648' || preThree==='649')) {
+    return 'Discover';
+  } else if ((len >= 12 && len <=19) && (preFour==='5018' || preFour==='5020' || preFour==='5038' || preFour==='6304')) {
+    return 'Maestro';
   }
 };

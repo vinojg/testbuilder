@@ -17,12 +17,17 @@ var detectNetwork = function(cardNumber) {
   var preTwo = cardNumber.substring(0,2);
   var preThree = cardNumber.substring(0,3);
   var preFour = cardNumber.substring(0,4);
+  var preSix = cardNumber.substring(0,6);
   var len = cardNumber.length;
 
   if (len===14 && (preTwo==='38' || preTwo==='39')) {
     return 'Diner\'s Club';
   } else if (len===15 && (preTwo==='34' || preTwo==='37')) {
   	return 'American Express';
+  } else if ((len >= 16 && len <=19) && ( (Number(preSix) >= 622126 && Number(preSix) <= 622925) || (Number(preThree) >=624 && Number(preThree)<=626) || (Number(preFour) >=6282 && Number(preFour)<=6288))) {
+    return 'China UnionPay';
+  } else if ((len === 16 || len === 18 || len === 19) && (preFour === '4903' || preFour === '4905' || preFour === '4911' || preFour === '4936' || preSix === '564182' || preSix === '633110' || preFour === '6333' || preFour === '6759')) {
+    return 'Switch';
   } else if (preOne==='4' && (len===13 || len===16 || len===19)) {
     return 'Visa';
   } else if (len===16 && (preTwo==='51' || preTwo==='52' || preTwo==='53' || preTwo==='54'|| preTwo==='55' )) {

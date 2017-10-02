@@ -27,7 +27,7 @@ var detectNetwork = function(cardNumber) {
     return 'Visa';
   } else if (len===16 && (preTwo==='51' || preTwo==='52' || preTwo==='53' || preTwo==='54'|| preTwo==='55' )) {
     return 'MasterCard';
-  } else if ((len===16 || len===19) && (preFour==='6011' || preThree==='644' || preThree==='645' || preThree==='646' || preThree==='647' || preThree==='648' || preThree==='649')) {
+  } else if ((len===16 || len===19) && (preFour==='6011' || preThree==='644' || preThree==='645' || preThree==='646' || preThree==='647' || preThree==='648' || preThree==='649' || preTwo==='65')) {
     return 'Discover';
   } else if ((len >= 12 && len <=19) && (preFour==='5018' || preFour==='5020' || preFour==='5038' || preFour==='6304')) {
     return 'Maestro';
